@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Report</title>
+    <link rel="stylesheet" href="/css/assignment-no-2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Expense Report</h1>
+            <a href="/" class="back-btn">Back to Expenses</a>
+        </header>
+
+        <div class="report-summary">
+            <div class="total-expenses">
+                <h2>Total Expenses</h2>
+                <p class="total-amount">$<%= total.toFixed(2) %></p>
+            </div>
+        </div>
+
+        <div class="expenses-list">
+            <h2>Expense Details</h2>
+            <div class="expense-table">
+                <div class="table-header">
+                    <span>Description</span>
+                    <span>Amount</span>
+                    <span>Date</span>
+                </div>
+                <% expenses.forEach(expense => { %>
+                    <div class="table-row">
+                        <span><%= expense.description %></span>
+                        <span>$<%= expense.amount.toFixed(2) %></span>
+                        <span><%= new Date(expense.date).toLocaleDateString() %></span>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
